@@ -1,32 +1,197 @@
-<!doctype html>
-<html>
-    <head>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-        <bory>
-          <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="index.html">ARIIAM HOSPEDAGEM</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarScroll">
-                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="SOBRENOS.HTML">SOBRE NÓS</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="CABANAS.HTML">CABANAS</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="AREADOHOSPEDE.HTML">AREA DO HOSPEDE</a>
-                    <li class="nav-item">
-                      <a class="nav-link" href="GALERIA.HTML">GALERIA</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="ATIVIDADES.HTML">ATIVIDADES</a>
-                    </li>
-                  </li>
-        </bory>
-    </head>
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>ARIIAM HOSPEDAGEM - Reserva de Cabanas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f4f1ee;
+      font-family: 'Segoe UI', sans-serif;
+      color: #333;
+    }
+
+    h1,
+    h2 {
+      color: #8c9c88;
+    }
+
+    .navbar {
+      border-bottom: 2px solid #ffffff;
+      background-color: #ffffff;
+    }
+
+    .container {
+      max-width: 800px;
+      margin-top: 50px;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-control {
+      margin-bottom: 15px;
+    }
+
+    .bi-credit-card {
+      font-size: 1.5rem;
+      color: #28a745;
+      margin-right: 8px;
+    }
+
+    .btn-success {
+      width: 100%;
+      padding: 12px;
+      font-size: 1.1em;
+    }
+
+    .toast-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
+
+    .toast {
+      background-color: #8c9c88;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body onload="mostrarBoasVindas()">
+
+
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">ARIIAM HOSPEDAGEM</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
+          <li class="nav-item"><a class="nav-link active" href="SOBRENOS.HTML">SOBRE NÓS</a></li>
+          <li class="nav-item"><a class="nav-link" href="CABANAS.HTML">CABANAS</a></li>
+          <li class="nav-item"><a class="nav-link" href="AREADOHOSPEDE.HTML">ÁREA DO HÓSPEDE</a></li>
+          <li class="nav-item"><a class="nav-link" href="GALERIA.HTML">GALERIA</a></li>
+          <li class="nav-item"><a class="nav-link" href="ATIVIDADES.HTML">ATIVIDADES</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="text-center">
+    <h1>Seja Bem-Vindo à Nossa Casa 🏕</h1>
+    <p>Descubra experiências únicas, conforto e conexão com a natureza.</p>
+  </div>
+
+
+  <div class="container">
+    <h2>Reserva de Cabanas</h2>
+
+    <form id="formReserva">
+
+      <input type="text" class="form-control" placeholder="Nome completo" required>
+      <input type="email" class="form-control" placeholder="E-mail" required>
+      <input type="tel" class="form-control" placeholder="Telefone / WhatsApp" required>
+
+
+      <input type="date" class="form-control" required>
+      <input type="number" class="form-control" placeholder="Número de pessoas" min="1" required>
+      <select class="form-control" id="tipoCabana" required>
+        <option value="">Tipo de Cabana</option>
+        <option value="rustica">Rústica</option>
+        <option value="moderna">Moderna</option>
+        <option value="sustentavel">Sustentável</option>
+      </select>
+
+
+      <input type="number" id="diarias" class="form-control" placeholder="Número de diárias" min="1" required>
+
+      <!-- Valor total -->
+      <div class="mt-3">
+        <strong>Valor Total:</strong> <span id="valorTotal">R$ 0,00</span>
+      </div>
+
+
+      <div class="d-flex align-items-center mt-3">
+        <i class="bi bi-credit-card"></i>
+        <span>Pagamento seguro via PIX, cartão ou transferência</span>
+      </div>
+
+      <button type="submit" class="btn btn-success mt-4">Confirmar Reserva</button>
+    </form>
+  </div>
+
+
+  <div class="toast-container">
+    <div id="boasVindasToast" class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">👋 Bem-vindo ao Refúgio ARIIAM!</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+      </div>
+    </div>
+
+    <div id="toastReserva" class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">Reserva enviada com sucesso! 🌿</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function mostrarBoasVindas() {
+      const toastEl = document.getElementById('boasVindasToast');
+      const toast = new bootstrap.Toast(toastEl);
+      toast.show();
+    }
+
+    const form = document.getElementById('formReserva');
+    const tipoCabana = document.getElementById('tipoCabana');
+    const diariasInput = document.getElementById('diarias');
+    const valorDisplay = document.getElementById('valorTotal');
+
+    function calcularValor() {
+      const tipo = tipoCabana.value;
+      const diarias = parseInt(diariasInput.value);
+      let valorNoite = 0;
+
+      switch (tipo) {
+        case 'rustica': valorNoite = 180; break;
+        case 'moderna': valorNoite = 250; break;
+        case 'sustentavel': valorNoite = 200; break;
+      }
+
+      if (valorNoite > 0 && diarias > 0) {
+        const total = valorNoite * diarias;
+        valorDisplay.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+      } else {
+        valorDisplay.textContent = 'R$ 0,00';
+      }
+    }
+
+    tipoCabana.addEventListener('change', calcularValor);
+    diariasInput.addEventListener('input', calcularValor);
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const toastEl = document.getElementById('toastReserva');
+      const toast = new bootstrap.Toast(toastEl);
+      toast.show();
+    });
+  </script>
+
+</body>
+
 </html>

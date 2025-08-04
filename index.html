@@ -1,101 +1,88 @@
-<!doctype html>
-<html>
-
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-
-<body style="background-image: url('');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 100% 100%;">
-  
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <title>ARIIAM HOSPEDAGEM</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Link do Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
-      background-color: #faf8f8;
-      font-family: Arial, sans-serif;
+      background-color: #f4f1ee;
+      font-family: 'Segoe UI', sans-serif;
+      color: #333;
     }
 
-    .card {
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s ease-in-out;
+    h1 {
+      margin-top: 40px;
+      font-size: 2.5em;
+      color: #8c9c88;
     }
 
-    .card:hover {
-      transform: scale(1.03);
+    .toast-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
+
+    .toast {
+      background-color: #8c9c88;
+      color: #fff;
     }
 
     .navbar {
-      background-color: transparent !important;
-    }
-
-    .navbar a {
-      color: black!important;
+      border-bottom: 2px solid #ffffff;
+      background-color: #ffffff;
     }
   </style>
-  <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="border-bottom: 2px solid #FFFFFF;">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">ARIIAM HOSPEDAGEM</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
-          aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        background-color: rgba(transparet);
-        </button>
-        <div class="collapse navbar-collapse" id="navbarScroll">
-          <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="SOBRENOS.HTML">SOBRE NÓS</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="CABANAS.HTML">CABANAS</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="AREADOHOSPEDE.HTML">AREA DO HOSPEDE</a>
-            <li class="nav-item">
-              <a class="nav-link" href="GALERIA.HTML">GALERIA</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="ATIVIDADES.HTML">ATIVIDADES</a>
-            </li>
-            </li>
-            <li class="nav-item dropdown">
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li>
-        </div>
+</head>
+<body onload="mostrarBoasVindas()">
+
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">ARIIAM HOSPEDAGEM</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="SOBRENOS.HTML">SOBRE NÓS</a></li>
+          <li class="nav-item"><a class="nav-link" href="CABANAS.HTML">CABANAS</a></li>
+          <li class="nav-item"><a class="nav-link" href="AREADOHOSPEDE.HTML">ÁREA DO HÓSPEDE</a></li>
+          <li class="nav-item"><a class="nav-link" href="GALERIA.HTML">GALERIA</a></li>
+          <li class="nav-item"><a class="nav-link" href="ATIVIDADES.HTML">ATIVIDADES</a></li>
+        </ul>
       </div>
-    </nav>
-  </bory>
-  <br>
-  <center>
-    <h1>SEJA BEM VIDO A NOSSA CASA</h1>
+    </div>
+  </nav>
 
-  </center>
-  <style>
-    .banner {
-      width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto;
+  <div class="text-center">
+    <h1>Seja Bem-Vindo à Nossa Casa 🌿</h1>
+    <p>Descubra experiências únicas, conforto e conexão com a natureza.</p>
+  </div>
+
+  <!-- Toast de boas-vindas -->
+  <div class="toast-container">
+    <div id="boasVindasToast" class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          👋 Bem-vindo ao Refúgio ARIIAM!
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts Bootstrap e JavaScript personalizado -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function mostrarBoasVindas() {
+      const toastEl = document.getElementById('boasVindasToast');
+      const toast = new bootstrap.Toast(toastEl);
+      toast.show();
     }
-    @media only screen and (min-width: 767px) {
-      .mobile-banner {
-        display: none;
-      }
-    }
-    @media only screen and (max-width: 766px) {
-      .desktop-banner {
-        display: none;
-      }
-    }
-  </style>
+  </script>
+
+</body>
 </html>

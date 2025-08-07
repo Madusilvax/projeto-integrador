@@ -1,33 +1,156 @@
-<doctype html>
-    <html>
-        <head>
-            <bory>
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-        <bory>
-          <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <nav class="navbar navbar-expand-lg bg-body-tertiary" style="border-bottom: 2px solid #FFFFFF;"></nav>
-            <div class="container-fluid">
-              <a class="navbar-brand" href="index.html">ARIIAM HOSPEDAGEM</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarScroll">
-                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="SOBRENOS.HTML">SOBRE NÓS</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="CABANAS.HTML">CABANAS</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="AREADOHOSPEDE.HTML">AREA DO HOSPEDE</a>
-                    <li class="nav-item">
-                      <a class="nav-link" href="GALERIA.HTML">GALERIA</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="ATIVIDADES.HTML">ATIVIDADES</a>
-                    </li>
-            </bory>
-        </head>
-    </html>
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+const SobreNos = () => {
+  return (
+    <div>
+      {/* Navbar */}
+      <nav className="navbar navbar-expand-lg bg-body-tertiary border-bottom border-white">
+        <div className="container-fluid">
+          <a className="navbar-brand" href="/">ARIIAM HOSPEDAGEM</a>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li className="nav-item"><a className="nav-link active" href="#">SOBRE NÓS</a></li>
+              <li className="nav-item"><a className="nav-link" href="#">CABANAS</a></li>
+              <li className="nav-item"><a className="nav-link" href="#">ÁREA DO HÓSPEDE</a></li>
+              <li className="nav-item"><a className="nav-link" href="#">GALERIA</a></li>
+              <li className="nav-item"><a className="nav-link" href="#">ATIVIDADES</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      {/* Seção Sobre Nós */}
+      <section className="sobre-nos-wrapper">
+        <video autoPlay loop muted className="bg-video">
+          <source src="/nature.mp4" type="video/mp4" />
+        </video>
+
+        <div className="overlay">
+          <div className="container-sobre">
+            <h2>Sobre Nós</h2>
+            <p>
+              Bem-vindo à nossa hospedagem de cabanas 🌲<br />
+              Em meio à natureza, criamos um refúgio para quem busca descanso, aconchego e uma conexão real com a paz da serra.
+              Nossas cabanas são pensadas com carinho, unindo rusticidade e conforto para uma experiência inesquecível.
+            </p>
+
+            <div className="depoimentos">
+              <h3>O que dizem nossos hóspedes:</h3>
+              <div className="cards">
+                <div className="card">
+                  <p>"Simplesmente mágico! Acordar com o som dos pássaros foi indescritível."</p>
+                  <span>– Ana, SP</span>
+                </div>
+                <div className="card">
+                  <p>"Perfeito para um final de semana a dois. Voltaremos com certeza!"</p>
+                  <span>– Lucas, RJ</span>
+                </div>
+                <div className="card">
+                  <p>"Tranquilidade, conforto e uma vista de tirar o fôlego!"</p>
+                  <span>– Carla, MG</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* CSS-in-JSX */}
+        <style jsx> {`
+          .sobre-nos-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            color: white;
+          }
+
+          .bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            filter: brightness(0.4);
+          }
+
+          .overlay {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 100px 20px;
+          }
+
+          .container-sobre {
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+          }
+
+          .container-sobre h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+          }
+
+          .container-sobre p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 50px auto;
+            line-height: 1.6;
+          }
+
+          .depoimentos h3 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+          }
+
+          .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+          }
+
+          .card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            max-width: 300px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+          }
+
+          .card p {
+            font-size: 1rem;
+            font-style: italic;
+          }
+
+          .card span {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+          }
+
+          @media (max-width: 768px) {
+            .container-sobre h2 {
+              font-size: 2.2rem;
+            }
+
+            .container-sobre p {
+              font-size: 1rem;
+            }
+
+            .card {
+              width: 100%;
+            }
+          }
+        `} </style>
+      </section>
+    </div>
+  );
+};
+
+export default SobreNos;
